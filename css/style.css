@@ -1,3 +1,18 @@
-*{
+
+* {
   font-family: 'geist', sans-serif;
+}
+
+/* Search panel: band thakle shenko, khulle smooth expand */
+#search-toggle-panel {
+  display: block;
+  max-width: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-width 0.3s ease-out, opacity 0.25s ease-out;
+}
+
+#search-toggle-panel.expanded {
+  max-width: 16rem;
+  opacity: 1;
 }
