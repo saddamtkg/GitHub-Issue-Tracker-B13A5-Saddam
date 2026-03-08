@@ -11,16 +11,55 @@ body {
 	overflow-y: scroll;
 }
 
-/* Search panel: band thakle shenko, khulle smooth expand */
-#search-toggle-panel {
-  display: block;
-  max-width: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: max-width 0.3s ease-out, opacity 0.25s ease-out;
+/* Search panel: 800px er niche header er niche expand, 801px+ e inline */
+@media (max-width: 800px) {
+  #search-toggle-panel {
+    width: 100%;
+    max-width: none;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    padding: 0 1rem;
+    transition: max-height 0.3s ease-out, opacity 0.25s ease-out, padding 0.2s ease-out;
+  }
+  #search-toggle-panel.expanded {
+    max-height: 4.5rem;
+    opacity: 1;
+    padding: 0.5rem 1rem;
+    margin-top: 0.6rem;
+  }
+  #search-toggle-panel .input {
+    min-width: 0;
+  }
 }
 
-#search-toggle-panel.expanded {
-  max-width: 16rem;
-  opacity: 1;
+@media (min-width: 801px) {
+  #search-toggle-panel {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 9rem;
+    width: 16rem;
+    max-width: 0;
+    max-height: none;
+    overflow: hidden;
+    opacity: 0;
+    padding: 0;
+    transition: max-width 0.3s ease-out, opacity 0.25s ease-out;
+  }
+  #search-toggle-panel.expanded {
+    max-width: 16rem;
+    opacity: 1;
+  }
+}
+
+/* Load spinner: smooth fade, same width as cards row */
+.loading-spinner-wrapper {
+  transition: opacity 0.3s ease-out;
+}
+.loading-spinner-wrapper.hidden {
+  display: none;
+}
+#cards-container {
+  transition: opacity 0.25s ease-in;
 }
