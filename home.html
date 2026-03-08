@@ -94,12 +94,22 @@
         </div>
       </div>
       <div id="cards-container"
-        class="grid grid-cols-4 gap-4 row-width bg-[#FBFBFB] border border-base-300 border-t-0 p-6 rounded-b-lg shadow-lg">
-
-  
-
+        class="grid grid-cols-4 gap-4 justify-center row-width bg-[#FBFBFB] border border-base-300 border-t-0 p-6 rounded-b-lg shadow-lg">
+      </div>
+      <!-- Load more button - All tab e 8 kore issue load korar jonno -->
+      <div id="load-more-wrapper" class="row-width mt-4 text-center hidden">
+        <button id="load-more-btn" class="btn btn-primary">Load more</button>
       </div>
     </section>
+    <!-- Modal: full content is built in app.js with template string (id="modal-issue-content") -->
+    <dialog id="issue-modal" class="modal">
+      <div class="modal-box max-w-2xl bg-white shadow-lg rounded-lg p-6 relative">
+        <div id="modal-issue-content"><!-- filled by app.js template string --></div>
+      </div>
+      <form method="dialog" class="modal-backdrop">
+        <button type="submit">close</button>
+      </form>
+    </dialog>
     <footer class="w-11/12 mx-auto py-3">
       <p class="text-sm text-center text-base-content/60 shrink-0">
         <span class="font-bold">GitHub Issue Tracker</span> © 2026. All rights reserved.
