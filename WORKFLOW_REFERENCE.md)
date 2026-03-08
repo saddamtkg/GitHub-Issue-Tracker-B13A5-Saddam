@@ -1,0 +1,57 @@
+Full workflow (memorise – no code)
+1. Page flow
+index.html = Login। admin / admin123 দিয়ে login → home.html এ redirect।
+home.html = Dashboard। issues, tabs (All/Open/Closed), cards, search, (modal)।
+2. index.html – IDs (ভুল এড়াতে)
+#login-section – login area
+#login-form – form (fieldset)
+#username – username input
+#password – password input
+#login-btn – Sign In button
+#error-message – error text (default hidden)
+#theme-toggle – theme checkbox
+Script order: them.js → login.js
+
+3. home.html – IDs (ভুল এড়াতে)
+#main-section – main content
+#tabs-wrapper – tabs + “New Issue” এর wrapper
+#tabs-container – যেখানে tab buttons
+#all-tab → data-tab="all"
+#open-tab → data-tab="open"
+#closed-tab → data-tab="closed"
+#add-new-issue – New Issue button
+#issue-count-wrapper – issue count box
+#issue-count-text-unit – সংখ্যা (যেমন 0)
+#issue-count-text – “Issues” লেবেল
+#cards-container – issue cards যেখানে inject হবে
+#search-toggle-panel – search panel (smooth expand)
+#search-input – search input
+#search-btn – search icon button
+#theme-toggle – theme
+Script order: them.js → app.js
+
+4. JS files – responsibility
+login.js: শুধু #login-btn click → #username, #password read → validate → success এ home.html; error এ #error-message show। Form submit prevent করতে হলে form এর submit event use করতে হবে।
+them.js: #theme-toggle change → document.documentElement.setAttribute('data-theme', 'light'|'dark')।
+app.js: (১) Search: #search-btn → #search-toggle-panel এ expanded class toggle; বাইরে click করলে expanded remove। (২) ভবিষ্যতে: load issues, tab filter, render cards, modal, search API – সব সময় উপরের home.html IDs use করবে।
+5. Class / state (ভুল এড়াতে)
+Search panel open/close = expanded class on #search-toggle-panel (not hidden).
+Tab active = যে class দিয়ে active দেখাচ্ছ (যেমন btn-active বা custom) সেটা maintain করতে হবে।
+Card: Open = উপরে green border, Closed = উপরে purple border।
+6. API (assignment)
+All: .../api/v1/lab/issues
+Single: .../api/v1/lab/issue/{id}
+Search: .../api/v1/lab/issues/search?q={searchText}
+Issue object এ: id, title, description, status (open/closed), labels, priority, author, assignee, createdAt, updatedAt ইত্যাদি।
+7. Flow in short
+index.html → login form → #login-btn click → login.js → home.html।
+home.html → them.js (theme), app.js (search toggle + later: issues, tabs, cards, modal, search)।
+Search: #search-btn → #search-toggle-panel এ expanded toggle; #search-input same panel এ।
+Tabs: #all-tab, #open-tab, #closed-tab (data-tab) দিয়ে filter; result #cards-container এ।
+Count update: #issue-count-text-unit।
+Modal / search API যুক্ত করলে ওই same IDs use করতে হবে।
+8. যাতে ভুল না হয়
+Login এর জন্য শুধু index.html এর IDs: #login-form, #login-btn, #username, #password, #error-message।
+Home এ search এর জন্য: #search-toggle-panel, #search-input, #search-btn; state = expanded।
+Cards ও count: #cards-container, #issue-count-text-unit।
+Tabs: #tabs-container, #all-tab, #open-tab, #closed-tab, data-tab="all|open|closed"।

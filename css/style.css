@@ -2,6 +2,10 @@
 * {
   font-family: 'geist', sans-serif;
 }
+.row-width {
+    width: 100%;
+    max-width: 1240px;
+}
 
 /* Search panel: band thakle shenko, khulle smooth expand */
 #search-toggle-panel {
