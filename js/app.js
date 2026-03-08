@@ -223,14 +223,15 @@ const displayIssueCards = (issuesToDisplay) => {
     cardsContainerElement.innerHTML = '<p class="col-span-full text-center py-8 text-base-content/70">No issues found</p>';
     return;
   }
-  issuesToDisplay.forEach((singleIssue) => {
+  issuesToDisplay.forEach((singleIssue, index) => {
     const isIssueOpen = (singleIssue.status || '').toLowerCase() === 'open';
     const topBorderClass = isIssueOpen ? 'border-t-4 border-t-[#00A96E]' : 'border-t-4 border-t-[#A855F7]';
     const statusImageSrc = isIssueOpen ? './assets/Open-Status.png' : './assets/Closed-Status.png';
     const statusImageAlt = isIssueOpen ? 'open-issue' : 'closed-issue';
     const shortDescription = truncateDescriptionByLetters(singleIssue.description || '', DESCRIPTION_MAX_TEXT);
     const cardWrapperElement = document.createElement('div');
-    cardWrapperElement.className = `${topBorderClass} cursor-pointer h-full rounded-lg`;
+    cardWrapperElement.className = `anim-card ${topBorderClass} cursor-pointer h-full rounded-lg`;
+    cardWrapperElement.style.animationDelay = `${index * 0.05}s`;
     cardWrapperElement.setAttribute('data-issue-id', singleIssue.id);
     cardWrapperElement.innerHTML = `
       <div class="card card-compact shadow-lg w-full bg-base-100 h-full flex flex-col">
@@ -267,12 +268,14 @@ const loadIssueDetailById = async (issueId) => {
     if (localIssue) {
       modalContentElement.innerHTML = '';
       modalElement.showModal();
+      if (window.animationsAddModalIn) window.animationsAddModalIn('issue-modal');
       displayIssueInModal(localIssue);
       return;
     }
   }
   modalContentElement.innerHTML = '<p class="text-base-content/70">Loading...</p>';
   modalElement.showModal();
+  if (window.animationsAddModalIn) window.animationsAddModalIn('issue-modal');
   const apiUrl = `${API_BASE_URL}/issue/${issueId}`;
   try {
     const response = await fetch(apiUrl);

@@ -11,6 +11,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <!-- css file link -->
   <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/animations.css">
   <!-- font cnd link -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap">
   <!-- font awesome cdn link -->
@@ -42,7 +43,7 @@
       </label>
     </header>
     <section id="login-section" class="flex-1 py-8 sm:py-12 md:py-16 px-4 sm:px-6 flex items-center justify-center bg-base-200">
-      <div class="card w-full max-w-md bg-base-100 border border-base-300 rounded-lg shadow-lg p-4 sm:p-6">
+      <div class="card anim-login-card w-full max-w-md bg-base-100 border border-base-300 rounded-lg shadow-lg p-4 sm:p-6">
         <div class="flex flex-col items-center justify-center gap-3 sm:gap-4 w-full">
           <div class="logo">
             <i class="fa-brands fa-github text-6xl sm:text-8xl text-base-content"></i>
@@ -60,7 +61,7 @@
             <span class="label-text">Password</span>
           </label>
           <input type="password" id="password" placeholder="Enter your password" class="input input-bordered w-full input-sm sm:input-md" />
-          <button id="login-btn" class="btn btn-primary w-full mt-4 btn-sm sm:btn-md">Sign In</button>
+          <button id="login-btn" class="btn btn-primary w-full mt-4 btn-sm sm:btn-md anim-btn">Sign In</button>
         </fieldset>
         <div class="divider">OR</div>
         <p class="text-xs sm:text-sm bg-base-200 p-2 rounded-lg text-center text-base-content/60 mt-2">Demo: Username:
@@ -68,14 +69,14 @@
         </p>
       </div>
     </section>
-    <footer class="w-full max-w-[1240px] mx-auto px-4 sm:px-6 py-3">
+    <footer class="anim-fade-in-up w-full max-w-[1240px] mx-auto px-4 sm:px-6 py-3">
       <p class="text-xs sm:text-sm text-center text-base-content/60 shrink-0">
         <span class="font-bold">GitHub Issue Tracker</span> © 2026. All rights reserved.
       </p>
     </footer>
   </main>
-  <!-- app.js -->
   <script src="./js/them.js"></script>
+  <script src="./js/animations.js"></script>
   <script src="./js/login.js"></script>
 </body>
 

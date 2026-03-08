@@ -16,6 +16,7 @@
     newIssueForm.reset();
     hideToast();
     newIssueModal.showModal();
+    if (window.animationsAddModalIn) window.animationsAddModalIn('new-issue-modal');
   });
 
   if (newIssueCancelBtn) {

@@ -11,6 +11,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <!-- css file link -->
   <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/animations.css">
   <!-- font cnd link -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap">
   <!-- font awesome cdn link -->
@@ -22,7 +23,7 @@
 <body class="bg-base-500">
   <!-- content -->
   <main class="min-h-screen flex flex-col">
-    <header class="header-with-search shrink-0 w-full max-w-[1240px] mx-auto px-4 sm:px-6 py-3 sm:py-4 relative">
+    <header class="header-with-search anim-fade-in-up shrink-0 w-full max-w-[1240px] mx-auto px-4 sm:px-6 py-3 sm:py-4 relative">
       <!-- Top row: choto screen e center, boro screen e justify-between -->
       <div class="flex flex-wrap items-center justify-center sm:justify-between gap-3 sm:gap-5">
         <div class="flex items-center gap-2 min-w-0">
@@ -62,16 +63,16 @@
           class="outline-none input input-bordered w-full min-w-0" aria-label="Search issues" />
       </div>
     </header>
-    <section id="main-section" class="py-6 sm:py-10 md:py-16 flex flex-col items-center justify-center bg-base-200 px-4 sm:px-6">
+    <section id="main-section" class="anim-section py-6 sm:py-10 md:py-16 flex flex-col items-center justify-center bg-base-200 px-4 sm:px-6">
       <div id="tabs-wrapper"
-        class="row-width w-full flex flex-col sm:flex-row sm:justify-between sm:items-center items-center gap-4 bg-base-100 border border-base-300 rounded-lg shadow-sm p-4 sm:p-6 mb-4">
+        class="row-width w-full flex flex-col sm:flex-row sm:justify-between sm:items-center items-center gap-4 bg-base-100 border border-base-300 rounded-lg shadow-sm p-4 sm:p-6 mb-4 anim-fade-in-up">
         <div class="flex flex-wrap gap-2 justify-center" id="tabs-container">
           <button id="all-tab" class="btn btn-primary btn-outline px-4 sm:px-8 btn-sm sm:btn-md" data-tab="all">All</button>
           <button id="open-tab" class="btn btn-primary btn-outline px-3 sm:px-6 btn-sm sm:btn-md" data-tab="open">Open</button>
           <button id="closed-tab" class="btn btn-primary btn-outline px-3 sm:px-6 btn-sm sm:btn-md" data-tab="closed">Closed</button>
         </div>
         <div class="w-full sm:w-auto">
-          <button id="add-new-issue" class="btn btn-primary btn-sm sm:btn-md w-full sm:w-auto">+ New Issue</button>
+          <button id="add-new-issue" class="btn btn-primary btn-sm sm:btn-md w-full sm:w-auto anim-btn">+ New Issue</button>
         </div>
       </div>
       <div id="issue-count-wrapper"
@@ -106,7 +107,7 @@
       </div>
       <!-- Load more button - All tab e 8 kore issue load korar jonno -->
       <div id="load-more-wrapper" class="row-width w-full mt-4 text-center hidden">
-        <button id="load-more-btn" class="btn btn-primary btn-sm sm:btn-md">Load more</button>
+        <button id="load-more-btn" class="btn btn-primary btn-sm sm:btn-md anim-btn">Load more</button>
       </div>
     </section>
     <!-- Modal: full content is built in app.js template string (id="modal-issue-content") -->
@@ -181,7 +182,7 @@
         <button type="submit">close</button>
       </form>
     </dialog>
-    <footer class="w-full max-w-[1240px] mx-auto px-4 sm:px-6 py-3">
+    <footer class="anim-fade-in-up w-full max-w-[1240px] mx-auto px-4 sm:px-6 py-3">
       <p class="text-xs sm:text-sm text-center text-base-content/60 shrink-0">
         <span class="font-bold">GitHub Issue Tracker</span> © 2026. All rights reserved.
       </p>
@@ -190,8 +191,9 @@
 
 
 
-  <!-- app.js then newIssue.js (newIssue uses addNewIssueToApp from app.js) -->
+  <!-- animations.js first, then app.js, newIssue.js -->
   <script src="./js/them.js"></script>
+  <script src="./js/animations.js"></script>
   <script src="./js/app.js"></script>
   <script src="./js/newIssue.js"></script>
 </body>
