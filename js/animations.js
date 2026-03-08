@@ -1,8 +1,3 @@
-/**
- * Modern animations – runs on page load and handles modal close.
- * Add anim-modal-in to modal .modal-box when opening (from app.js / newIssue.js).
- */
-
 (function () {
   function addPageReady() {
     requestAnimationFrame(function () {

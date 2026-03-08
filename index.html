@@ -23,7 +23,7 @@
 <body class="bg-base-500">
   <!-- content -->
   <main class="min-h-screen flex flex-col">
-    <header class="flex flex-wrap items-center justify-center sm:justify-between gap-3 w-full max-w-[1240px] mx-auto px-4 sm:px-6 py-3 shrink-0">
+    <header class="flex flex-wrap items-center justify-center sm:justify-between gap-3 w-full max-w-[1240px] mx-auto py-3 sm:py-4 shrink-0">
       <div class="flex items-center gap-2 min-w-0">
         <i class="fa-brands fa-github text-2xl sm:text-4xl text-base-content shrink-0"></i>
         <h1 class="text-lg sm:text-2xl font-bold truncate">GitHub Issue Tracker</h1>
@@ -52,13 +52,17 @@
           <p class="text-center text-sm sm:text-base text-base-content/70">Sign in to manage your issues</p>
         </div>
         <p id="error-message" class="text-medium text-red-500 mt-2 text-center hidden"></p>
-        <fieldset id="login-form" class="form-control mt-4 w-full space-y-2">
+        <fieldset id="login-form" class="form-control mt-4 w-full space-y-3">
           <label class="label">
             <span class="label-text">Username</span>
           </label>
           <input type="text" id="username" placeholder="Enter your username" class="input input-bordered w-full input-sm sm:input-md" />
-          <label class="label">
+          <label class="label flex flex-wrap items-center justify-between gap-2">
             <span class="label-text">Password</span>
+            <label class="label cursor-pointer gap-2 p-0 min-h-0">
+              <input type="checkbox" id="show-password" class="checkbox checkbox-sm" aria-label="Show password" />
+              <span class="label-text text-sm">Show password</span>
+            </label>
           </label>
           <input type="password" id="password" placeholder="Enter your password" class="input input-bordered w-full input-sm sm:input-md" />
           <button id="login-btn" class="btn btn-primary w-full mt-4 btn-sm sm:btn-md anim-btn">Sign In</button>

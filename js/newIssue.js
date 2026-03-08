@@ -1,8 +1,3 @@
-/**
- * New Issue modal: open form on "+ New Issue" click, submit adds issue to list (demo only).
- * Requires app.js to expose window.addNewIssueToApp(issue).
- */
-
 (function () {
   const newIssueModal = document.getElementById('new-issue-modal');
   const newIssueForm = document.getElementById('new-issue-form');

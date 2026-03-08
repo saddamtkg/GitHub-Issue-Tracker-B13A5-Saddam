@@ -11,7 +11,6 @@ body {
 	overflow-y: scroll;
 }
 
-/* Search panel: 800px er niche header er niche expand, 801px+ e inline */
 @media (max-width: 800px) {
   #search-toggle-panel {
     width: 100%;
@@ -38,7 +37,7 @@ body {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    right: 9rem;
+    right: 13rem;
     width: 16rem;
     max-width: 0;
     max-height: none;
@@ -53,7 +52,6 @@ body {
   }
 }
 
-/* Load spinner: smooth fade, same width as cards row */
 .loading-spinner-wrapper {
   transition: opacity 0.3s ease-out;
 }

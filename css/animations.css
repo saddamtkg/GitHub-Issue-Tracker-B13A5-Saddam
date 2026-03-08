@@ -1,9 +1,3 @@
-/**
- * Modern animations – separate file for the whole project.
- * Use classes: anim-fade-in-up, anim-card, anim-modal-in, anim-btn, anim-section.
- */
-
-/* ========== KEYFRAMES ========== */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -64,7 +58,6 @@
   }
 }
 
-/* ========== PAGE LOAD (body.anim-page-ready) ========== */
 body.anim-page-ready .anim-fade-in-up {
   animation: fadeInUp 0.5s ease-out backwards;
 }
@@ -77,12 +70,10 @@ body.anim-page-ready .anim-section {
   animation: fadeInUp 0.5s ease-out backwards;
 }
 
-/* Stagger children (e.g. header, then section) */
 body.anim-page-ready main > header { animation-delay: 0.05s; }
 body.anim-page-ready #main-section { animation-delay: 0.1s; }
 body.anim-page-ready main > footer { animation-delay: 0.15s; }
 
-/* ========== CARDS ========== */
 .anim-card {
   animation: cardIn 0.4s ease-out backwards;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -100,17 +91,14 @@ body.anim-page-ready main > footer { animation-delay: 0.15s; }
   box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
 }
 
-/* ========== MODAL ========== */
 .modal-box.anim-modal-in {
   animation: modalIn 0.25s ease-out;
 }
 
-/* Dialog backdrop fade */
 dialog.modal[open].anim-modal-ready::backdrop {
   animation: fadeIn 0.2s ease-out;
 }
 
-/* ========== BUTTONS ========== */
 .anim-btn {
   transition: transform 0.15s ease, box-shadow 0.2s ease;
 }
@@ -123,7 +111,6 @@ dialog.modal[open].anim-modal-ready::backdrop {
   transform: translateY(0);
 }
 
-/* ========== LOGIN PAGE ========== */
 .anim-login-card {
   animation: scaleIn 0.45s ease-out backwards;
 }
@@ -132,12 +119,10 @@ body.anim-page-ready .anim-login-card {
   animation-delay: 0.1s;
 }
 
-/* ========== LOAD MORE / TOAST ========== */
 .anim-slide-down {
   animation: slideDown 0.3s ease-out;
 }
 
-/* ========== REDUCE MOTION ========== */
 @media (prefers-reduced-motion: reduce) {
   .anim-fade-in-up,
   .anim-fade-in,
